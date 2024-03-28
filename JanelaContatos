@@ -1,0 +1,68 @@
+
+package br.com.estudojava.gui;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+ 
+public class JanelaContato extends JFrame {
+ 
+	public static void main(String[] args) {
+
+			//Instância da classe JFrame para criar a nossa
+			//janela. Essa Técnica é utilizada para passar todas
+			//as propriedades a nossa nova janela.
+			JFrame tela = new JFrame();
+			//configurar largura e altura
+			tela.setSize(600,400);
+			//Configura o texto que vai na barra de titulo
+			tela.setTitle("Janela de Contato");
+			//Fazer a janela abrir no centro da tela. A referência 
+			// de posicionamento será nula.
+			tela.setLocationRelativeTo(null);
+			//Retirare a possibilidade de fazer o redimencionamento
+			tela.setResizable(false);
+			//Vamos configurar o layout da nossa tela como absoluto.
+			//isto nos permite posicionar os elementos da forma que 
+			//achamos melhor. As posições são: x e y. Além de definir 
+			//o tamanho com: largura(w-width) e altura(h-height)
+			tela.getContentPane().setLayout(null);
+			//vamos criar uma label para o nome do cliente
+			JLabel lblnome = new JLabel("Nome do Cliente");
+			lblnome.setBounds(10,10,120,30);
+			//vamos adicionar a label a nossa janela
+			tela.add(lblnome);
+			//Criar uma JTextField para o usuário escrever o nome
+			JTextField txtnome = new JTextField();
+			txtnome.setBounds(10,40,570,30);
+			//adicionar a textField à nossa janela
+			tela.add(txtnome);
+			JLabel lblemail = new JLabel ("E-mail:");
+			lblemail.setBounds(10,70,120,30);
+			tela.add(lblemail);
+			JTextField txtemail = new JTextField();
+			txtemail.setBounds(10,100,570,30);
+			tela.add(txtemail);
+			JLabel lblmensagem = new JLabel ("Mensagem:");
+			lblmensagem.setBounds (10,130,120,30);
+			tela.add(lblmensagem);
+			// Vamos adicionar um componente para realizar 
+			// a rolagem do texto da TextArea que colocaremos
+			JScrollPane scroll = new JScrollPane();
+			scroll.setBounds (10,160,570,150);
+			//Criar um componente chamado JTextArea, que é uma 
+			//caixa de texto para escrever grandes volumes 
+			// de texto
+			JTextArea area = new JTextArea();
+			//Adicionar a TextArea a nossa caixa de rolagem
+			scroll.setViewportView(area);
+			tela.add(scroll);
+			//Adicionar um botão a nossa janela 
+			JButton btngravar = new JButton("Gravar");
+			btngravar.setBounds(480,320,100,30);
+			tela.add(btngravar);
+
+
