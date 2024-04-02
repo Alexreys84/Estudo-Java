@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class  QuatroOperacoes {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Digite o primeiro número: ");
+        int numero1 = sc.nextInt();
+
+        System.out.println("Digite o segundo número: ");
+        int numero2 = sc.nextInt();
+
+        int soma =  numero1 +  numero2;
+        int subtrair =  numero1 -  numero2;
+        int multiplicar =  numero1 *  numero2;
+               
+        
+        int dividir = 0;
+        if (numero2 != 0) {
+            dividir = numero1 / numero2;
+        } else {
+            System.out.println("Não é possível dividir por zero.");
+        }
+
+        System.out.println("O resultado da soma é: " + soma);
+        System.out.println("O resultado da subtração é: " + subtrair);
+        System.out.println("O resultado da multiplicação é: " + multiplicar);
+        
+        if ( numero2 != 0) {
+            System.out.println("O resultado da divisão é: " + dividir);
+        }
+    }
+}
