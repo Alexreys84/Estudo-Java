@@ -91,6 +91,8 @@ public class TelaLogin extends JFrame {
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setState(JFrame.ICONIFIED);
+				//Abrir uma nova janela. Neste caso a Janela Principal
+				new Principal ().setVisible(true);
 			}
 		});
 		btnEnter.setBounds(708, 767, 89, 23);
@@ -102,7 +104,7 @@ public class TelaLogin extends JFrame {
 		
 		
 		JLabel lblFundo = new JLabel("Fundo");
-		lblFundo.setBounds(-0, 0, 1500, 840);
+		lblFundo.setBounds(40, 11, 1500, 840);
 		ImageIcon imageIcon1 = new ImageIcon(TelaLogin.class.getResource("/br/com/estudojava/gui/background.jpg"));
 		Image image1 = imageIcon1.getImage().getScaledInstance(lblFundo.getWidth(), lblFundo.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon scaledIcon1 = new ImageIcon(image1);	
