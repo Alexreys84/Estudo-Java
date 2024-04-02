@@ -1,0 +1,82 @@
+package br.com.estudojava.gui;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.ImageIcon;
+import javax.swing.JToolBar;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Principal extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	
+
+	/**
+	 * Create the frame.
+	 */
+	public Principal() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnArquivo = new JMenu("Arquivo");
+
+		menuBar.add(mnArquivo);
+		
+		JMenuItem mntmCliente = new JMenuItem("Abrir Cliente");
+		mntmCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new GerenciarClientes().setVisible(true);
+			}
+		});
+		mntmCliente.setIcon(new ImageIcon(Principal.class.getResource("/br/com/estudojava/gui/icones.png")));
+		mnArquivo.add(mntmCliente);
+		
+		JMenuItem mntmAbrirFuncionarios = new JMenuItem("Abrir Funcionários");
+		mntmAbrirFuncionarios.setIcon(new ImageIcon(Principal.class.getResource("/br/com/estudojava/gui/16.png")));
+		mnArquivo.add(mntmAbrirFuncionarios);
+		
+		JMenuItem mntmSair = new JMenuItem("Sair");
+		mntmSair.setIcon(new ImageIcon(Principal.class.getResource("/br/com/estudojava/gui/delete.png")));
+		mnArquivo.add(mntmSair);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JToolBar toolBar = new JToolBar();
+		toolBar.setBounds(0, 0, 434, 30);
+		contentPane.add(toolBar);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon(Principal.class.getResource("/br/com/estudojava/gui/icones.png")));
+		btnNewButton.setToolTipText("Abrir a Janela Clientes");
+		toolBar.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon(Principal.class.getResource("/br/com/estudojava/gui/16.png")));
+		btnNewButton_1.setToolTipText("Abrir a Janela Funcionarios");
+		toolBar.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.setIcon(new ImageIcon(Principal.class.getResource("/br/com/estudojava/gui/delete.png")));
+		btnNewButton_2.setToolTipText("Sair");
+		toolBar.add(btnNewButton_2);
+	}
+}
