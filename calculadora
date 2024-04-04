@@ -1,0 +1,374 @@
+package br.com.estudojava.gui;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+public class calculadora extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField textDisplay;
+	private double valorInicial = 0.0;
+	private double resultado =0.0;
+	private String operador = "";	
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					calculadora frame = new calculadora();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public calculadora() {
+		
+		setTitle("Calculadora");
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 193, 283);
+		contentPane = new JPanel();
+		contentPane.setForeground(Color.BLUE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		textDisplay = new JTextField();
+		textDisplay.setBackground(Color.BLACK);
+		textDisplay.setText("0");
+		textDisplay.setEnabled(false);
+		textDisplay.setHorizontalAlignment(SwingConstants.RIGHT);
+		textDisplay.setBounds(10, 11, 159, 20);
+		contentPane.add(textDisplay);
+		textDisplay.setColumns(10);
+		
+		JButton btn7 = new JButton("7");
+		btn7.setBackground(Color.BLACK);
+		btn7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textDisplay.getText().equals("0")) {
+					textDisplay.setText("7");
+				}
+				else {
+					textDisplay.setText(textDisplay.getText()+"7");
+					
+				}
+			}
+		});
+		btn7.setForeground(Color.GREEN);
+		btn7.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btn7.setBounds(10, 34, 40, 40);
+		contentPane.add(btn7);
+		
+		JButton btn8 = new JButton("8");
+		btn8.setBackground(Color.BLACK);
+		btn8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textDisplay.getText().equals("0")) {
+					textDisplay.setText("8");
+				}
+				else {
+					textDisplay.setText(textDisplay.getText()+"8");
+					
+				}
+			}
+		});
+		btn8.setForeground(Color.GREEN);
+		btn8.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btn8.setBounds(50, 34, 40, 40);
+		contentPane.add(btn8);
+		
+		JButton btn4 = new JButton("4");
+		btn4.setBackground(Color.BLACK);
+		btn4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textDisplay.getText().equals("0")) {
+					textDisplay.setText("4");
+				}
+				else {
+					textDisplay.setText(textDisplay.getText()+"4");
+					
+				}
+			}
+		});
+		btn4.setForeground(Color.GREEN);
+		btn4.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btn4.setBounds(10, 74, 40, 40);
+		contentPane.add(btn4);
+		
+		JButton btn9 = new JButton("9");
+		btn9.setBackground(Color.BLACK);
+		btn9.setForeground(Color.GREEN);
+		btn9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textDisplay.getText().equals("0")) {
+					textDisplay.setText("9");
+				}
+				else {
+					textDisplay.setText(textDisplay.getText()+"9");
+					
+				}
+			}
+		});
+		btn9.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btn9.setBounds(89, 34, 40, 40);
+		contentPane.add(btn9);
+		
+		JButton btnDiv = new JButton("÷");
+		btnDiv.setBackground(Color.BLACK);
+		btnDiv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				valorInicial = Double.parseDouble(textDisplay.getText());
+				
+				textDisplay.setText("0");
+				operador = "dividir";
+				
+			}
+		});
+		btnDiv.setForeground(Color.GREEN);
+		btnDiv.setFont(new Font("Tahoma", Font.PLAIN, 8));
+		btnDiv.setBounds(129, 34, 40, 40);
+		contentPane.add(btnDiv);
+		
+		JButton btn5 = new JButton("5");
+		btn5.setBackground(Color.BLACK);
+		btn5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textDisplay.getText().equals("0")) {
+					textDisplay.setText("5");
+				}
+				else {
+					textDisplay.setText(textDisplay.getText()+"5");
+					
+				}
+			}
+		});
+		btn5.setForeground(Color.GREEN);
+		btn5.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btn5.setBounds(50, 74, 40, 40);
+		contentPane.add(btn5);
+		
+		JButton btn6 = new JButton("6");
+		btn6.setBackground(Color.BLACK);
+		btn6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textDisplay.getText().equals("0")) {
+					textDisplay.setText("6");
+				}
+				else {
+					textDisplay.setText(textDisplay.getText()+"6");
+					
+				}
+			}
+		});
+		btn6.setForeground(Color.GREEN);
+		btn6.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btn6.setBounds(89, 74, 40, 40);
+		contentPane.add(btn6);
+		
+		JButton btnVezes = new JButton("X");
+		btnVezes.setBackground(Color.BLACK);
+		btnVezes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+valorInicial = Double.parseDouble(textDisplay.getText());
+				
+				textDisplay.setText("0");
+				operador = "multiplicar";
+			}
+		});
+		btnVezes.setForeground(Color.GREEN);
+		btnVezes.setFont(new Font("Tahoma", Font.PLAIN, 8));
+		btnVezes.setBounds(129, 74, 40, 40);
+		contentPane.add(btnVezes);
+		
+		JButton btn1 = new JButton("1");
+		btn1.setBackground(Color.BLACK);
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textDisplay.getText().equals("0")) {
+					textDisplay.setText("1");
+				}
+				else {
+					textDisplay.setText(textDisplay.getText()+"1");
+					
+				}
+			}
+		});
+		btn1.setForeground(Color.GREEN);
+		btn1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btn1.setBounds(10, 114, 40, 40);
+		contentPane.add(btn1);
+		
+		JButton btn2 = new JButton("2");
+		btn2.setBackground(Color.BLACK);
+		btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textDisplay.getText().equals("0")) {
+					textDisplay.setText("2");
+				}
+				else {
+					textDisplay.setText(textDisplay.getText()+"2");
+					
+				}
+			}
+		});
+		btn2.setForeground(Color.GREEN);
+		btn2.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btn2.setBounds(50, 114, 40, 40);
+		contentPane.add(btn2);
+		
+		JButton btn3 = new JButton("3");
+		btn3.setBackground(Color.BLACK);
+		btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textDisplay.getText().equals("0")) {
+					textDisplay.setText("3");
+				}
+				else {
+					textDisplay.setText(textDisplay.getText()+"3");
+					
+				}
+			}
+		});
+		btn3.setForeground(Color.GREEN);
+		btn3.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btn3.setBounds(89, 114, 40, 40);
+		contentPane.add(btn3);
+		
+		JButton btnMenos = new JButton("-");
+		btnMenos.setBackground(Color.BLACK);
+		btnMenos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+valorInicial = Double.parseDouble(textDisplay.getText());
+				
+				textDisplay.setText("0");
+				operador = "subtrair";
+			}
+		});
+		btnMenos.setForeground(Color.GREEN);
+		btnMenos.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnMenos.setBounds(129, 114, 40, 40);
+		contentPane.add(btnMenos);
+		
+		JButton btnPonto = new JButton(".");
+		btnPonto.setBackground(Color.BLACK);
+		btnPonto.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+				
+				if(textDisplay.getText().equals("0")) {
+					textDisplay.setText("0.");
+				}
+				else {
+					textDisplay.setText(textDisplay.getText()+".");
+				}
+				btnPonto.setEnabled(false);
+				}
+			
+	});
+		
+		btnPonto.setForeground(Color.GREEN);
+		btnPonto.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnPonto.setBounds(10, 154, 40, 40);
+		contentPane.add(btnPonto);
+		
+		JButton btnZero = new JButton("0");
+		btnZero.setBackground(Color.BLACK);
+		btnZero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textDisplay.getText().equals("0")) {
+					textDisplay.setText("0");
+				}
+				else {
+					textDisplay.setText(textDisplay.getText()+"0");
+					
+				}
+			}
+		});
+		btnZero.setForeground(Color.GREEN);
+		btnZero.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnZero.setBounds(50, 154, 40, 40);
+		contentPane.add(btnZero);
+		
+		JButton btnIgual = new JButton("=");
+		btnIgual.setBackground(Color.BLACK);
+		btnIgual.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(operador.equals("dividir")) {
+					resultado = valorInicial / Double.parseDouble(textDisplay.getText());
+					textDisplay.setText(String.valueOf(resultado));
+					
+				}
+				else if(operador.equals("multiplicar")) {
+					resultado = valorInicial  * Double.parseDouble(textDisplay.getText());
+					textDisplay.setText(String.valueOf(resultado));
+				}
+				else if(operador.equals("subitrair")) {
+					resultado = valorInicial  - Double.parseDouble(textDisplay.getText());
+					textDisplay.setText(String.valueOf(resultado));
+				}
+				else if(operador.equals("somar")) {
+					resultado = valorInicial  + Double.parseDouble(textDisplay.getText());
+					textDisplay.setText(String.valueOf(resultado));
+				}
+							
+				
+			}
+		});
+		btnIgual.setForeground(Color.GREEN);
+		btnIgual.setFont(new Font("Tahoma", Font.PLAIN, 8));
+		btnIgual.setBounds(89, 154, 40, 40);
+		contentPane.add(btnIgual);
+		
+		JButton btnMais = new JButton("+");
+		btnMais.setBackground(Color.BLACK);
+		btnMais.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+valorInicial = Double.parseDouble(textDisplay.getText());
+				
+				textDisplay.setText("0");
+				operador = "somar";
+			}
+		});
+		btnMais.setForeground(Color.GREEN);
+		btnMais.setFont(new Font("Tahoma", Font.PLAIN, 8));
+		btnMais.setBounds(129, 154, 40, 40);
+		contentPane.add(btnMais);
+		
+		JButton btnApagar = new JButton("Apagar");
+		btnApagar.setBackground(Color.BLUE);
+		btnApagar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+valorInicial = Double.parseDouble(textDisplay.getText());
+				
+				textDisplay.setText("0");
+				operador = "Apagar";
+			}
+										
+		});
+		btnApagar.setForeground(Color.GREEN);
+		btnApagar.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		btnApagar.setBounds(10, 196, 159, 40);
+		contentPane.add(btnApagar);
+	}
+}
